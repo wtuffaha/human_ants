@@ -1,16 +1,8 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    columnize (0.3.6)
-    debugger (1.6.0)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.1)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.2)
     haml (4.0.4)
       tilt
-    json (1.8.0)
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
@@ -24,7 +16,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  debugger
   haml
-  json
   sinatra
