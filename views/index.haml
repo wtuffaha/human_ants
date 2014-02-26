@@ -13,7 +13,7 @@
       var target = 'no target';
 
       window.addEventListener("deviceorientation", function (ev) {
-        info.direction = 360 - ev.alpha;
+        info.direction = ev.webkitCompassHeading;
       }, true);
 
       setInterval(function () {
@@ -45,7 +45,13 @@
         if (!t) { return; }
         var dist = haversine_m(info, t);
         var dir = direction(info, t);
-        $('#target').html(dist + 'm, ' + dir);
+        var delta_dir = (info.direction - dir) % 360;
+
+        var v =  1 / dist * (1 / delta_dir);
+
+        $('#target').html(dist + 'm, ' + delta_dir + ', ' + v);
+
+        return v;
       };
 
       var haversine_m = function (p1, p2) {
@@ -77,7 +83,7 @@
         var x = Math.cos(p1.latitude) * Math.sin(p2.latitude) -
                   Math.sin(p1.latitude) * Math.cos(p2.latitude) * Math.cos(dLon);
         var brng = toDeg(Math.atan2(y, x));
-        return 360 - ((brng + 360) % 360);
+        return ((brng + 360) % 360);
       };
 
       var tp1 = {latitude: 24.426080673024455, longitude:54.47246287023134}
