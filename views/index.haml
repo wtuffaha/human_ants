@@ -1,0 +1,84 @@
+!!!
+%html
+  %head
+    %script{src: '/jquery.js'}
+    %title My Sinatra Website
+  %body
+    %p#time
+    %p#info
+    %button#activate-btn{type: 'button'} Off
+    %p#target
+    :javascript
+      var info = {latitude: 24.42992, longitude: 54.47307}
+      var target = 'no target';
+
+      window.addEventListener("deviceorientation", function (ev) {
+        info.direction = 360 - ev.alpha;
+      }, true);
+
+      setInterval(function () {
+        navigator.geolocation.getCurrentPosition(function (geo) {
+          info.latitude = geo.coords.latitude;
+          info.longitude = geo.coords.longitude;
+          info.accuracy = geo.coords.accuracy;
+        });
+      }, 1000);
+
+      setInterval(function () {
+        $('#info').html(JSON.stringify(info));
+        $.post('/loc', info, function (data) {
+          target = JSON.parse(data)[0];
+        });
+
+        getTargetLevel(target);
+        $('#time').html(new Date().getTime());
+      }, 2000);
+
+      $('#activate-btn').click(function (ev) {
+        ev.preventDefault();
+
+        info.active = !info.active;
+        $(this).html(info.active ? 'On' : 'Off');
+      });
+
+      var getTargetLevel= function (t) {
+        if (!t) { return; }
+        var dist = haversine_m(info, t);
+        var dir = direction(info, t);
+        $('#target').html(dist + 'm, ' + dir);
+      };
+
+      var haversine_m = function (p1, p2) {
+        var R = 6371; // km
+        var dLat = toRad(p2.latitude - p1.latitude);
+        var dLon = toRad(p2.longitude - p2.longitude);
+        var lat1 = toRad(p1.latitude);
+        var lat2 = toRad(p2.latitude);
+
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                var d = R * c;
+
+        return d * 1000;
+      };
+
+      var toRad = function (deg) {
+        return deg * Math.PI / 180;
+      };
+
+      var toDeg = function (rad) {
+       return rad * 180 / Math.PI;
+      };
+
+      var direction = function (p1, p2) {
+        var dLon = p2.longitude - p1.longitude;
+        var y = Math.sin(dLon) * Math.cos(p2.latitude);
+        var x = Math.cos(p1.latitude) * Math.sin(p2.latitude) -
+                  Math.sin(p1.latitude) * Math.cos(p2.latitude) * Math.cos(dLon);
+        var brng = toDeg(Math.atan2(y, x));
+        return 360 - ((brng + 360) % 360);
+      };
+
+      var tp1 = {latitude: 24.426080673024455, longitude:54.47246287023134}
+      var tp2 = {latitude: 24.425303880148032, longitude:54.4730814546854}
