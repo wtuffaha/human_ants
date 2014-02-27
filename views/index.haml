@@ -91,7 +91,7 @@
           var delta_dir = (dir - info.direction + 360) % 360;
           if (delta_dir > 180) { delta_dir = 360 - delta_dir; }
 
-          var d_weight = Math.max(300 - dist, 0) / 300;
+          var d_weight = Math.max(300 - dist, 15) / 300;
           var dir_weight = (5 - parseInt(delta_dir / 30, 10)) / 5;
 
           var total_weight = d_weight * dir_weight * 100;
