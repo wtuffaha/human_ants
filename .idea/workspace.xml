@@ -40,8 +40,8 @@
       <file leaf-file-name="collector.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/collector.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-              <caret line="2" column="5" selection-start="38" selection-end="38" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="600">
+              <caret line="6" column="5" selection-start="103" selection-end="103" />
               <folding />
             </state>
           </provider>
@@ -465,8 +465,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/collector.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <caret line="2" column="5" selection-start="38" selection-end="38" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="600">
+          <caret line="6" column="5" selection-start="103" selection-end="103" />
           <folding />
         </state>
       </provider>
