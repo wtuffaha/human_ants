@@ -8,8 +8,13 @@
     %p#info
     %button#activate-btn{type: 'button'} Off
     %p#target
+
     :javascript
-      var info = {latitude: 24.42992, longitude: 54.47307}
+      var tp1 = {latitude: 24.426080673024455, longitude:54.47246287023134}
+      var tp2 = {latitude: 24.425303880148032, longitude:54.4730814546854}
+
+      // var info = {};
+      var info = tp1; // For testing
       var target = 'no target';
 
       window.addEventListener("deviceorientation", function (ev) {
@@ -45,11 +50,13 @@
         if (!t) { return; }
         var dist = haversine_m(info, t);
         var dir = direction(info, t);
-        var delta_dir = (info.direction - dir) % 360;
+        var delta_dir = (dir - info.direction + 360) % 360;
+        if (delta_dir > 180) { delta_dir = 360 - delta_dir; }
 
-        var v =  1 / dist * (1 / delta_dir);
+        var d_weight = Math.max(300 - dist, 0) / 300;
+        var dir_weight = (5 - parseInt(delta_dir / 30, 10)) / 5;
 
-        $('#target').html(dist + 'm, ' + delta_dir + ', ' + v);
+        $('#target').html(dist + 'm, ' + d_weight + ', (' + dir + '), ' + dir_weight);
 
         return v;
       };
@@ -85,6 +92,3 @@
         var brng = toDeg(Math.atan2(y, x));
         return ((brng + 360) % 360);
       };
-
-      var tp1 = {latitude: 24.426080673024455, longitude:54.47246287023134}
-      var tp2 = {latitude: 24.425303880148032, longitude:54.4730814546854}
