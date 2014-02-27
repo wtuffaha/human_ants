@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="166bc91d-eca4-4c1e-be37-765d5166647b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.haml" afterPath="$PROJECT_DIR$/views/index.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="human_ants.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +30,8 @@
       <file leaf-file-name="index.haml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68168604" vertical-offset="926" max-vertical-offset="2355">
-              <caret line="93" column="48" selection-start="2798" selection-end="2798" />
+            <state vertical-scroll-proportion="0.30523255" vertical-offset="0" max-vertical-offset="2355">
+              <caret line="14" column="17" selection-start="323" selection-end="323" />
               <folding />
             </state>
           </provider>
@@ -472,8 +473,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68168604" vertical-offset="926" max-vertical-offset="2355">
-          <caret line="93" column="48" selection-start="2798" selection-end="2798" />
+        <state vertical-scroll-proportion="0.30523255" vertical-offset="0" max-vertical-offset="2355">
+          <caret line="14" column="17" selection-start="323" selection-end="323" />
           <folding />
         </state>
       </provider>
