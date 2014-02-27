@@ -4,16 +4,21 @@ require 'haml'
 require 'json'
 
 set :public_folder, 'public'
+use Rack::Session::Cookie, :key => 'rack.session',
+  :path => '/',
+  :expire_after => 2592000, # In seconds
+  :secret => 'bla_bla_bla'
 
 $nodes = {}
 
 get '/' do
+  session[:uid] = session[:uid] || rand(1000_000_000)
   haml :index
 end
 
 post '/loc' do
   info = params.merge(:timestamp => Time.now.utc.to_i)
-  $nodes[request.env['REMOTE_ADDR']] = info
+  $nodes[session[:uid]] = info
 
   clean_nodes
 
