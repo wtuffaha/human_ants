@@ -30,8 +30,8 @@
       <file leaf-file-name="index.haml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30523255" vertical-offset="0" max-vertical-offset="2355">
-              <caret line="14" column="17" selection-start="323" selection-end="323" />
+            <state vertical-scroll-proportion="0.6729651" vertical-offset="1667" max-vertical-offset="2355">
+              <caret line="142" column="60" selection-start="4415" selection-end="4415" />
               <folding />
             </state>
           </provider>
@@ -40,8 +40,8 @@
       <file leaf-file-name="collector.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/collector.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="600">
-              <caret line="6" column="5" selection-start="103" selection-end="103" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+              <caret line="12" column="0" selection-start="246" selection-end="246" />
               <folding />
             </state>
           </provider>
@@ -419,7 +419,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="497">
           <caret line="0" column="0" selection-start="0" selection-end="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -465,16 +465,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/collector.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="600">
-          <caret line="6" column="5" selection-start="103" selection-end="103" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+          <caret line="12" column="0" selection-start="246" selection-end="246" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30523255" vertical-offset="0" max-vertical-offset="2355">
-          <caret line="14" column="17" selection-start="323" selection-end="323" />
+        <state vertical-scroll-proportion="0.6729651" vertical-offset="1667" max-vertical-offset="2355">
+          <caret line="142" column="60" selection-start="4415" selection-end="4415" />
           <folding />
         </state>
       </provider>

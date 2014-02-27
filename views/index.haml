@@ -80,7 +80,7 @@
           if (target) { return; }
 
           info.active = !info.active;
-          $(this).html(info.active ? 'On' : 'Off');
+          $(this).html(info.active ? 'Honey is all gone :(' : 'Found some more honey');
         });
 
         var getTargetLevel= function (t) {
@@ -140,10 +140,10 @@
         .col-md-12
           .well
             .progress
-              %p#no-target Waiting for a target
+              %p#no-target Waiting for someone to find honey
               .progress-bar.progress-bar-danger{:role => "progressbar", "aria-valuenow" => '60', "aria-valuemin" => "0", "aria-valuemax" => "100", :style => "width: 0%;"}
 
-          %button#activate-btn.btn.btn-primary.btn-lg.btn-block{type: "button"} Off
+          %button#activate-btn.btn.btn-primary.btn-lg.btn-block{type: "button"} Found some honey
 
     .debug
       %p#time
