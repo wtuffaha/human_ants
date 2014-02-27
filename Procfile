@@ -1,1 +1,1 @@
-collector: bundle exec ruby collector.rb -p $PORT
+web: bundle exec ruby collector.rb -p $PORT
