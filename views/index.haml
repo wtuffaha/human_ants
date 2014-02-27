@@ -2,93 +2,150 @@
 %html
   %head
     %script{src: '/jquery.js'}
+    %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"}
     %title My Sinatra Website
-  %body
-    %p#time
-    %p#info
-    %button#activate-btn{type: 'button'} Off
-    %p#target
+
+    :css
+      .btn {
+        height: 200px;
+        margin: 50px 0;
+        font-size: 50px;
+      }
+      .progress {
+        height: 300px;
+      }
+      #no-target {
+        font-size: 50px;
+        color: black;
+        line-height: 300px;
+        text-align: center;
+        width: 100%;
+      }
+      .debug {
+        font-size: 20px;
+        padding: 20px;
+        width: 100%;
+      }
 
     :javascript
-      var tp1 = {latitude: 24.426080673024455, longitude:54.47246287023134}
-      var tp2 = {latitude: 24.425303880148032, longitude:54.4730814546854}
+      $(function () {
+        var tp1 = {latitude: 24.426080673024455, longitude:54.47246287023134}
+        var tp2 = {latitude: 24.425303880148032, longitude:54.4730814546854}
 
-      // var info = {};
-      var info = tp1; // For testing
-      var target = 'no target';
+        var info = {};
+        // var info = tp1; // For testing
+        var target = 'no target';
 
-      window.addEventListener("deviceorientation", function (ev) {
-        info.direction = ev.webkitCompassHeading;
-      }, true);
+        window.addEventListener("deviceorientation", function (ev) {
+          info.direction = ev.webkitCompassHeading;
+        }, true);
 
-      setInterval(function () {
-        navigator.geolocation.getCurrentPosition(function (geo) {
-          info.latitude = geo.coords.latitude;
-          info.longitude = geo.coords.longitude;
-          info.accuracy = geo.coords.accuracy;
+        setInterval(function () {
+          navigator.geolocation.getCurrentPosition(function (geo) {
+            info.latitude = geo.coords.latitude;
+            info.longitude = geo.coords.longitude;
+            info.accuracy = geo.coords.accuracy;
+          });
+        }, 1000);
+
+        setInterval(function () {
+          $('#info').html(JSON.stringify(info));
+          $.post('/loc', info, function (data) {
+            target = JSON.parse(data)[0];
+            if (target) {
+              $('#no-target').hide();
+              $('#activate-btn').addClass('disabled');
+            } else {
+              $('#no-target').show();
+              $('#activate-btn').removeClass('disabled');
+            }
+          });
+          $('#time').html(new Date().getTime());
+        }, 2000);
+
+        setInterval(function () {
+          var res = getTargetLevel(target);
+          if (!res) { return; }
+
+          var d = res[0], w = res[1];
+          var klass = d < 100 ? 'success' : d < 200 ? 'warning' : 'danger';
+
+          $(".progress-bar").css({width: w + '%'})
+            .removeClass('progress-bar-danger progress-bar-warning progress-bar-success')
+            .addClass('progress-bar-' + klass);
+        }, 300);
+
+        $('body').on('click', '#activate-btn', function (ev) {
+          ev.preventDefault();
+          if (target) { return; }
+
+          info.active = !info.active;
+          $(this).html(info.active ? 'On' : 'Off');
         });
-      }, 1000);
 
-      setInterval(function () {
-        $('#info').html(JSON.stringify(info));
-        $.post('/loc', info, function (data) {
-          target = JSON.parse(data)[0];
-        });
+        var getTargetLevel= function (t) {
+          if (!t) { return; }
+          var dist = haversine_m(info, t);
+          var dir = direction(info, t);
 
-        getTargetLevel(target);
-        $('#time').html(new Date().getTime());
-      }, 2000);
+          var delta_dir = (dir - info.direction + 360) % 360;
+          if (delta_dir > 180) { delta_dir = 360 - delta_dir; }
 
-      $('#activate-btn').click(function (ev) {
-        ev.preventDefault();
+          var d_weight = Math.max(300 - dist, 0) / 300;
+          var dir_weight = (5 - parseInt(delta_dir / 30, 10)) / 5;
 
-        info.active = !info.active;
-        $(this).html(info.active ? 'On' : 'Off');
+          var total_weight = d_weight * dir_weight * 100;
+
+          $('#target').html(dist + 'm, ' + d_weight + ', (' + dir + '), ' + dir_weight);
+
+          return [dist, total_weight];
+        };
+
+        var haversine_m = function (p1, p2) {
+          var R = 6371; // km
+          var dLat = toRad(p2.latitude - p1.latitude);
+          var dLon = toRad(p2.longitude - p2.longitude);
+          var lat1 = toRad(p1.latitude);
+          var lat2 = toRad(p2.latitude);
+
+          var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+                  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                  var d = R * c;
+
+          return d * 1000;
+        };
+
+        var toRad = function (deg) {
+          return deg * Math.PI / 180;
+        };
+
+        var toDeg = function (rad) {
+         return rad * 180 / Math.PI;
+        };
+
+        var direction = function (p1, p2) {
+          var dLon = p2.longitude - p1.longitude;
+          var y = Math.sin(dLon) * Math.cos(p2.latitude);
+          var x = Math.cos(p1.latitude) * Math.sin(p2.latitude) -
+                    Math.sin(p1.latitude) * Math.cos(p2.latitude) * Math.cos(dLon);
+          var brng = toDeg(Math.atan2(y, x));
+          return ((brng + 360) % 360);
+        };
       });
 
-      var getTargetLevel= function (t) {
-        if (!t) { return; }
-        var dist = haversine_m(info, t);
-        var dir = direction(info, t);
-        var delta_dir = (dir - info.direction + 360) % 360;
-        if (delta_dir > 180) { delta_dir = 360 - delta_dir; }
+  %body
+    .container-fluid
+      .row
+        .col-md-12
+          .well
+            .progress
+              %p#no-target Waiting for a target
+              .progress-bar.progress-bar-danger{:role => "progressbar", "aria-valuenow" => '60', "aria-valuemin" => "0", "aria-valuemax" => "100", :style => "width: 0%;"}
 
-        var d_weight = Math.max(300 - dist, 0) / 300;
-        var dir_weight = (5 - parseInt(delta_dir / 30, 10)) / 5;
+          %button#activate-btn.btn.btn-primary.btn-lg.btn-block{type: "button"} Off
 
-        $('#target').html(dist + 'm, ' + d_weight + ', (' + dir + '), ' + dir_weight);
-
-        return v;
-      };
-
-      var haversine_m = function (p1, p2) {
-        var R = 6371; // km
-        var dLat = toRad(p2.latitude - p1.latitude);
-        var dLon = toRad(p2.longitude - p2.longitude);
-        var lat1 = toRad(p1.latitude);
-        var lat2 = toRad(p2.latitude);
-
-        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
-                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-                var d = R * c;
-
-        return d * 1000;
-      };
-
-      var toRad = function (deg) {
-        return deg * Math.PI / 180;
-      };
-
-      var toDeg = function (rad) {
-       return rad * 180 / Math.PI;
-      };
-
-      var direction = function (p1, p2) {
-        var dLon = p2.longitude - p1.longitude;
-        var y = Math.sin(dLon) * Math.cos(p2.latitude);
-        var x = Math.cos(p1.latitude) * Math.sin(p2.latitude) -
-                  Math.sin(p1.latitude) * Math.cos(p2.latitude) * Math.cos(dLon);
-        var brng = toDeg(Math.atan2(y, x));
-        return ((brng + 360) % 360);
-      };
+    .debug
+      %p#time
+      %p#info
+      %p#target
