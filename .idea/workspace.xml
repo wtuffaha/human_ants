@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="166bc91d-eca4-4c1e-be37-765d5166647b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.haml" afterPath="$PROJECT_DIR$/views/index.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="human_ants.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6729651" vertical-offset="1667" max-vertical-offset="2355">
+            <state vertical-scroll-proportion="-9.26" vertical-offset="1667" max-vertical-offset="2355">
               <caret line="142" column="60" selection-start="4415" selection-end="4415" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.12396694" vertical-offset="0" max-vertical-offset="726">
+              <caret line="6" column="0" selection-start="158" selection-end="158" />
               <folding />
             </state>
           </provider>
@@ -105,6 +114,7 @@
         <option value="$PROJECT_DIR$/collector.rb" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/views/index.haml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -473,8 +483,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6729651" vertical-offset="1667" max-vertical-offset="2355">
+        <state vertical-scroll-proportion="-9.26" vertical-offset="1667" max-vertical-offset="2355">
           <caret line="142" column="60" selection-start="4415" selection-end="4415" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12396694" vertical-offset="0" max-vertical-offset="726">
+          <caret line="6" column="0" selection-start="158" selection-end="158" />
           <folding />
         </state>
       </provider>
