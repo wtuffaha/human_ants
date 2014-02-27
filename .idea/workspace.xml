@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="166bc91d-eca4-4c1e-be37-765d5166647b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collector.rb" afterPath="$PROJECT_DIR$/collector.rb" />
-    </list>
+    <list default="true" id="166bc91d-eca4-4c1e-be37-765d5166647b" name="Default" comment="" />
     <ignored path="human_ants.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/" />
@@ -40,8 +37,8 @@
       <file leaf-file-name="collector.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/collector.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09090909" vertical-offset="0" max-vertical-offset="525">
-              <caret line="3" column="14" selection-start="67" selection-end="67" />
+            <state vertical-scroll-proportion="0.060606062" vertical-offset="0" max-vertical-offset="525">
+              <caret line="2" column="5" selection-start="38" selection-end="38" />
               <folding />
             </state>
           </provider>
@@ -346,8 +343,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/collector.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09090909" vertical-offset="0" max-vertical-offset="525">
-          <caret line="3" column="14" selection-start="67" selection-end="67" />
+        <state vertical-scroll-proportion="0.060606062" vertical-offset="0" max-vertical-offset="525">
+          <caret line="2" column="5" selection-start="38" selection-end="38" />
           <folding />
         </state>
       </provider>
