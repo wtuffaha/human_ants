@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'haml'
-require 'debugger'
+#require 'debugger'
 require 'json'
 
 set :public_folder, 'public'

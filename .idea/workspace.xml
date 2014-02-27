@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="166bc91d-eca4-4c1e-be37-765d5166647b" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Procfile.rb" afterPath="$PROJECT_DIR$/Procfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/human_ants.iml" afterPath="$PROJECT_DIR$/.idea/human_ants.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collector.rb" afterPath="$PROJECT_DIR$/collector.rb" />
     </list>
     <ignored path="human_ants.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="collector.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="collector.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/collector.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-              <caret line="2" column="8" selection-start="41" selection-end="51" />
+            <state vertical-scroll-proportion="0.09090909" vertical-offset="0" max-vertical-offset="525">
+              <caret line="3" column="14" selection-start="67" selection-end="67" />
               <folding />
             </state>
           </provider>
@@ -54,16 +51,16 @@
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-              <caret line="2" column="0" selection-start="30" selection-end="30" />
+              <caret line="7" column="0" selection-start="85" selection-end="85" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.ru" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Config.ru" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Config.ru">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.030303031" vertical-offset="0" max-vertical-offset="495">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
               <caret line="1" column="24" selection-start="49" selection-end="49" />
               <folding />
             </state>
@@ -106,6 +103,7 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/Config.ru" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/collector.rb" />
       </list>
     </option>
   </component>
@@ -330,10 +328,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/collector.rb">
+    <entry file="file://$PROJECT_DIR$/Config.ru">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <caret line="2" column="8" selection-start="41" selection-end="51" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
+          <caret line="1" column="24" selection-start="49" selection-end="49" />
           <folding />
         </state>
       </provider>
@@ -341,15 +339,15 @@
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
-          <caret line="2" column="0" selection-start="30" selection-end="30" />
+          <caret line="7" column="0" selection-start="85" selection-end="85" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Config.ru">
+    <entry file="file://$PROJECT_DIR$/collector.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.030303031" vertical-offset="0" max-vertical-offset="495">
-          <caret line="1" column="24" selection-start="49" selection-end="49" />
+        <state vertical-scroll-proportion="0.09090909" vertical-offset="0" max-vertical-offset="525">
+          <caret line="3" column="14" selection-start="67" selection-end="67" />
           <folding />
         </state>
       </provider>
